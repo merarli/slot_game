@@ -8,13 +8,18 @@ img{
 }
 
 input{
-    width: 47%;
+    width: 50%;
     height: 150px;
     font-size: 5vw;
     color: white;
+    background-color: burlywood;
 }
 
 .box{
     display: flex;
-    background-image: url("img/pic01.JPG");
+    background-image: url("");
+}
+.monster{
+    background-image: url("img/Volcano.png");
+    text-align: center;
 }
