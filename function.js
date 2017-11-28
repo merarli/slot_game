@@ -36,18 +36,28 @@ function changeIMGc() {
     document.getElementById("gazoC").src = img[cntC].src;
 }
 
+
+var slotFlg = 0;
 function startInterval() {
 //        intervalID = setInterval(changeIMGb(), 100);
+    if (slotFlg === 0) {
         intervalID = setInterval('changeIMGb();changeIMGa();changeIMGc();', 100);
+        slotFlg = 1;
+    }
+
 }
 
 
 //stopボタンを押すとタイマーを停止
 function stopInterval() {
-    clearInterval(intervalID);
-    if(cntA === cntB && cntB === cntC){
-        alert("あたり！");
-    }else{
-        alert("はずれ！");
+    if (slotFlg === 1) {
+
+        clearInterval(intervalID);
+        if (cntA === cntB && cntB === cntC) {
+            alert("あたり！");
+        } else {
+            alert("はずれ！");
+        }
+        slotFlg = 0;
     }
 }
