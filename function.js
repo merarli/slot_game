@@ -13,39 +13,41 @@ img[3] = new Image();
 img[3].src = "img/slot4.jpg";
 img[4] = new Image();
 img[4].src = "img/slot5.jpg";
-var cnt = 0;
+var cntA = 0;
+var cntB = 0;
+var cntC = 0;
 
 //画像切り替え関数 
 function changeIMGa() {
-
-//画像番号を進める 
-    if (cnt === 4) {
-        cnt = 0;
-    } else {
-        cnt++;
-    }
-
-//画像を切り替える 
-    document.getElementById("gazoA").src = img[cnt].src;
+    cntA = Math.floor(Math.random() * 5);
+    document.getElementById("gazoA").src = img[cntA].src;
 }
 
 //画像切り替え関数 
 function changeIMGb() {
-    var cnt = Math.floor(Math.random() * 5);
-    document.getElementById("gazoB").src = img[cnt].src;
+    cntB = Math.floor(Math.random() * 5);
+    document.getElementById("gazoB").src = img[cntB].src;
 }
 
 
 //画像切り替え関数 
 function changeIMGc() {
-//var cnt = 0;
-//画像番号を進める 
-    if (cnt === 4) {
-        cnt = 0;
-    } else {
-        cnt++;
-    }
+    cntC = Math.floor(Math.random() * 5);
+    document.getElementById("gazoC").src = img[cntC].src;
+}
 
-//画像を切り替える 
-    document.getElementById("gazoC").src = img[cnt].src;
+function startInterval() {
+//        intervalID = setInterval(changeIMGb(), 100);
+        intervalID = setInterval('changeIMGb();changeIMGa();changeIMGc();', 100);
+}
+
+
+//stopボタンを押すとタイマーを停止
+function stopInterval() {
+    clearInterval(intervalID);
+    if(cntA === cntB && cntB === cntC){
+        alert("あたり！");
+    }else{
+        alert("はずれ！");
+    }
 }

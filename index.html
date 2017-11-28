@@ -10,13 +10,16 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <img id="gazoA" onclick="changeIMGa()" src="img/slot1.jpg" alt="">
-        <img id="gazoB" onclick="changeIMGb()" src="img/slot1.jpg" alt="">
-        <img id="gazoC" onclick="changeIMGc()" src="img/slot1.jpg" alt="">
-        <!--<div class="start">スタート</div>-->
-        <button type=button onclick="botton()">
-            ぼたん
-        </button>
+        <img src="img/MONS_00302.PNG">
+        <div class="box">
+        <img id="gazoA" class="egara" onclick="changeIMGa()" src="img/slot1.jpg" alt="">
+        <img id="gazoB" class="egara" onclick="changeIMGb()" src="img/slot1.jpg" alt="">
+        <img id="gazoC" class="egara" onclick="changeIMGc()" src="img/slot1.jpg" alt="">
+        </div>
+        <div class="box">
+            <input type="button" value="start" onclick="startInterval();">
+            <input type="button" value="stop" onclick="stopInterval();">
+        </div
 
     </body>
 </html>
