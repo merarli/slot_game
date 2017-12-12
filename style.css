@@ -1,6 +1,6 @@
 @media screen and (max-width: 3840px) {
     .game-in{
-        width: 45%;
+        width: 25%;
         margin-right: auto;
         margin-left: auto;
     }
@@ -12,7 +12,7 @@
 
 @media screen and (max-width: 2560px) {
     .game-in{
-        width: 50%;
+        width: 30%;
         margin-right: auto;
         margin-left: auto;
     }
@@ -20,7 +20,7 @@
 
 @media screen and (max-width: 1920px) {
     .game-in{
-        width: 65%;
+        width: 35%;
         margin-right: auto;
         margin-left: auto;
     }
@@ -28,11 +28,12 @@
 
 @media screen and (max-width: 1024px) {
     .game-in{
-        width: 80%;
+        width: 90%;
         margin-right: auto;
         margin-left: auto;
     }
 }
+
 @media screen and (max-width: 768px) {
     .game-in{
         width: 97%;
@@ -79,6 +80,7 @@ img{
     display: flex;
     background-image: url("");
 }
+
 .monster{
     background-image: url("img/Volcano.png");
     text-align: center;
@@ -87,8 +89,18 @@ img{
     margin-left: auto;
 }
 
-.chp{
+#cHP{
     width: 100%;
     background-color: green;
-    
+    height: 100px;
+    font-size: 8vw;
+    color: white;
+}
+
+#mobHP{
+    width: 100%;
+    background-color: red;
+    height: 100px;
+    font-size: 8vw;
+    color: black;
 }

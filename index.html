@@ -14,6 +14,7 @@
             <div class="monster">
                 <img src="img/Irongiant.png">
             </div>
+            <div id="mobHP"></div>
             <div class="box">
                 <img id="gazoA" class="egara" onclick="changeIMGa()" src="img/slot1.jpg" alt="">
                 <img id="gazoB" class="egara" onclick="changeIMGb()" src="img/slot1.jpg" alt="">
@@ -28,7 +29,23 @@
                 <input class="stop" type="button" value="stop" onclick="stopInterval3();">
             </div>
 
-            <audio src="sound/game_title.mp3" controls>
+            <!--            <div class="box">-->
+            <div id="cHP"></div>
+            <!--</div>-->
+
+            <audio src="sound/game_title.mp3" controls> </audio>Ï
+            <audio id="sound-file" preload="auto">
+                <source src="sound/click.wav" type="audio/mp3">
+            </audio>
+
+            <audio id="start-sound" preload="auto">
+                <source src="sound/atumori.mp3" type="audio/mp3">
+            </audio>
+
+            <audio id="bingo" preload="auto">
+                <source src="sound/bingo.wav" type="audio/mp3">
+            </audio>
+
         </div>
 
     </body>

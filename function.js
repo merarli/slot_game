@@ -26,6 +26,7 @@ var luck = 3;
 var fps = 250;
 
 //キャラクターHP
+var cHP_MAX = 500;
 var cHP = 500;
 
 //キャラクター攻撃力
@@ -36,7 +37,15 @@ var cAtk = 100;
 var mAtk1 = 15;
 
 //HP
+var mHP1_MAX = 300;
 var mHP1 = 300;
+
+//HP数値などの初期化
+window.onload = function () {
+    document.getElementById("cHP").textContent = cHP;
+    document.getElementById("mobHP").textContent = mHP1;
+}
+
 
 //画像切り替え関数 
 function changeIMGa() {
@@ -57,14 +66,16 @@ function changeIMGc() {
     document.getElementById("gazoC").src = img[cntC].src;
 }
 
-
+//スタートボタン
 var slotFlg = 0;
 function startInterval() {
     if (slotFlg === 0) {
         intervalID1 = setInterval('changeIMGa();', fps);
         intervalID2 = setInterval('changeIMGb();', fps);
         intervalID3 = setInterval('changeIMGc();', fps);
+
         slotFlg = 1;
+        document.getElementById('start-sound').play();
     }
 }
 
@@ -73,6 +84,7 @@ function startInterval() {
 function stopInterval1() {
     if (slotFlg === 1) {
         clearInterval(intervalID1);
+        document.getElementById('sound-file').play();
     }
 }
 
@@ -80,20 +92,26 @@ function stopInterval1() {
 function stopInterval2() {
     if (slotFlg === 1) {
         clearInterval(intervalID2);
+        document.getElementById('sound-file').play();
     }
 }
 
 //stopボタンを押すとタイマーを停止3
 function stopInterval3() {
     if (slotFlg === 1) {
-
+        document.getElementById('sound-file').play();
+        slotFlg = 0;
         clearInterval(intervalID3);
+        //揃った場合
         if (cntA === cntB && cntB === cntC) {
             MYtoMOB1(cAtk);
+            document.getElementById('bingo').play();
+        //揃わなかった場合
         } else {
             MOB1toMY(mAtk1);
+            
         }
-        slotFlg = 0;
+
     }
 }
 
@@ -101,13 +119,28 @@ function stopInterval3() {
 
 function MYtoMOB1(myAtk) {
     mHP1 = mHP1 - myAtk;
-    alert("ダメージを与えた！ +" + myAtk);
-    alert("敵のHP残り" + mHP1 + "/自分のHP" + cHP);
+//    alert("ダメージを与えた！ +" + myAtk);
+//    alert("敵のHP残り" + mHP1 + "/自分のHP" + cHP);
+    myHPstyle();
+    mobHPstyle();
 }
 
 function MOB1toMY(mobAtk) {
     cHP = cHP - mAtk1;
-    alert("ダメージを受けた！ -" + mobAtk);
-    alert("敵のHP残り" + mHP1 + "/自分のHP" + cHP);
+//    alert("ダメージを受けた！ -" + mobAtk);
+//    alert("敵のHP残り" + mHP1 + "/自分のHP" + cHP);
+    myHPstyle();
+    mobHPstyle();
 }
 
+//自分のHPゲージを変更するCSS
+function myHPstyle() {
+    document.getElementById("cHP").style.width = (cHP / cHP_MAX * 100) + "%";
+    document.getElementById("cHP").textContent = cHP;
+}
+
+//MOBゲージを変更するCSS
+function mobHPstyle() {
+    document.getElementById("mobHP").style.width = (mHP1 / mHP1_MAX * 100) + "%";
+    document.getElementById("mobHP").textContent = mHP1;
+}
