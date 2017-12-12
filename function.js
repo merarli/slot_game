@@ -20,7 +20,7 @@ var cntC = 0;
 //ゲーム設定変数
 
 //推奨3~5
-var luck = 5;
+var luck = 3;
 
 //ミリ秒オリンピック選手で170　一般200~300
 var fps = 250;
@@ -69,11 +69,25 @@ function startInterval() {
 }
 
 
-//stopボタンを押すとタイマーを停止
-function stopInterval() {
+//stopボタンを押すとタイマーを停止1
+function stopInterval1() {
+    if (slotFlg === 1) {
+        clearInterval(intervalID1);
+    }
+}
+
+//stopボタンを押すとタイマーを停止2
+function stopInterval2() {
+    if (slotFlg === 1) {
+        clearInterval(intervalID2);
+    }
+}
+
+//stopボタンを押すとタイマーを停止3
+function stopInterval3() {
     if (slotFlg === 1) {
 
-        clearInterval(intervalID1);
+        clearInterval(intervalID3);
         if (cntA === cntB && cntB === cntC) {
             MYtoMOB1(cAtk);
         } else {
@@ -82,6 +96,8 @@ function stopInterval() {
         slotFlg = 0;
     }
 }
+
+
 
 function MYtoMOB1(myAtk) {
     mHP1 = mHP1 - myAtk;
@@ -94,3 +110,4 @@ function MOB1toMY(mobAtk) {
     alert("ダメージを受けた！ -" + mobAtk);
     alert("敵のHP残り" + mHP1 + "/自分のHP" + cHP);
 }
+
