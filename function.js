@@ -79,13 +79,23 @@ function startInterval() {
     }
 }
 
+var count = 0;
 
 //stopボタンを押すとタイマーを停止1
 function stopInterval1() {
     if (slotFlg === 1) {
         clearInterval(intervalID1);
         document.getElementById('sound-file').play();
+
+        if (count < 2) {
+            count = count + 1;
+        } else {
+            bingo();
+            count = 0;
+            slotFlg = 0;
+        }
     }
+
 }
 
 //stopボタンを押すとタイマーを停止2
@@ -93,6 +103,14 @@ function stopInterval2() {
     if (slotFlg === 1) {
         clearInterval(intervalID2);
         document.getElementById('sound-file').play();
+
+        if (count < 2) {
+            count = count + 1;
+        } else {
+            bingo();
+            count = 0;
+            slotFlg = 0;
+        }
     }
 }
 
@@ -100,21 +118,18 @@ function stopInterval2() {
 function stopInterval3() {
     if (slotFlg === 1) {
         document.getElementById('sound-file').play();
-        slotFlg = 0;
+//        slotFlg = 0;
         clearInterval(intervalID3);
-        //揃った場合
-        if (cntA === cntB && cntB === cntC) {
-            MYtoMOB1(cAtk);
-            document.getElementById('bingo').play();
-        //揃わなかった場合
-        } else {
-            MOB1toMY(mAtk1);
-            
-        }
 
+        if (count < 2) {
+            count = count + 1;
+        } else {
+            bingo();
+            count = 0;
+            slotFlg = 0;
+        }
     }
 }
-
 
 
 function MYtoMOB1(myAtk) {
@@ -143,4 +158,19 @@ function myHPstyle() {
 function mobHPstyle() {
     document.getElementById("mobHP").style.width = (mHP1 / mHP1_MAX * 100) + "%";
     document.getElementById("mobHP").textContent = mHP1;
+    if (mHP1 <= 0) {
+        document.getElementById("mobHP").textContent = "ゲームクリア！　スコア：" + cHP;
+    }
+}
+
+function bingo() {
+//    alert("bingo！");
+    //揃った場合
+    if (cntA === cntB && cntB === cntC) {
+        MYtoMOB1(cAtk);
+        document.getElementById('bingo').play();
+        //揃わなかった場合
+    } else {
+        MOB1toMY(mAtk1);
+    }
 }
