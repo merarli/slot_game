@@ -1,11 +1,55 @@
+@media screen and (max-width: 3840px) {
+    .game-in{
+        width: 45%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .egara{
+        width: 33.333%;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 2560px) {
+    .game-in{
+        width: 50%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+@media screen and (max-width: 1920px) {
+    .game-in{
+        width: 65%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .game-in{
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+@media screen and (max-width: 768px) {
+    .game-in{
+        width: 97%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .egara{
+        width: 33.333%;
+        height: 200px;
+    }
+
+}
+
 img{
 
 }
 
-.egara{
-    width: 33.333%;
-    height: 300px;
-}
 
 input{
     width: 50%;
@@ -22,4 +66,7 @@ input{
 .monster{
     background-image: url("img/Volcano.png");
     text-align: center;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
 }
