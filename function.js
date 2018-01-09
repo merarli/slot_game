@@ -23,7 +23,7 @@ var cntC = 0;
 var luck = 3;
 
 //ミリ秒オリンピック選手で170　一般200~300
-var fps = 250;
+var fps = 300;
 
 //キャラクターHP
 var cHP_MAX = 500;
@@ -152,6 +152,9 @@ function MOB1toMY(mobAtk) {
 function myHPstyle() {
     document.getElementById("cHP").style.width = (cHP / cHP_MAX * 100) + "%";
     document.getElementById("cHP").textContent = cHP;
+    if(cHP <= 0){
+        alert("ざんねーーーーん！！　ゲームオーバー！　スコア：" + cHP);
+    }
 }
 
 //MOBゲージを変更するCSS
@@ -159,7 +162,8 @@ function mobHPstyle() {
     document.getElementById("mobHP").style.width = (mHP1 / mHP1_MAX * 100) + "%";
     document.getElementById("mobHP").textContent = mHP1;
     if (mHP1 <= 0) {
-        document.getElementById("mobHP").textContent = "ゲームクリア！　スコア：" + cHP;
+//        document.getElementById("mobHP").textContent = "ゲームクリア！　スコア：" + cHP;
+        alert("ゲームクリア！　スコア：" + cHP);
     }
 }
 
