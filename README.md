@@ -1,3 +1,4 @@
-#javaScriptによるWebサイトで動く簡易的なスロットゲーム
+# javaScriptによるWebサイトで動く簡易的なスロットゲーム
 cloneしてそのままWebサイトに置けば動きます。
+
 index.htmlをローカル環境のWebブラウザで開いても動きます。
